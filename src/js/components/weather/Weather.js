@@ -52,8 +52,8 @@ render() {
                         data={data}
                         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                         <Line type="monotone" dataKey="high" stroke="#ff7300" yAxisId={0} />
-                    <Line type="monotone" dataKey="low" stroke="#387908" yAxisId={1} />
-                    </LineChart>
+                        <Line type="monotone" dataKey="low" stroke="#387908" yAxisId={1} />
+                        </LineChart>
                       </ResponsiveContainer>
                     </Col>
                 </Row>
