@@ -1,0 +1,10 @@
+.paper {
+  height: 180px;
+  padding: 15px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-align: center;
+}
+.descriptionText{
+    font-size: 11px;
+}
