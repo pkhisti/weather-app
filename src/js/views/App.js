@@ -5,6 +5,8 @@ import Weather from '../components/weather/Weather';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ApiCalls from '../services/ApiCalls';
 import LocalStorage from '../services/LocalStorage';
+import  'muicss/dist/css/mui.css';
+import Container from 'muicss/lib/react/container';
 
 class App extends Component {
 
@@ -58,12 +60,13 @@ loadWeatherDetails = () => {
 render() {
   return(
     <MuiThemeProvider>
-        <div>
+    <div>
           <Header/>
+        <Container>
           <Cities handleCityChange={this.handleCityChange} city={this.state.selectedCity}/>
           <Weather data={this.state.weatherData} showData={this.state.showData} city={this.state.selectedCity}/>
-        </div>
-
+        </Container>
+     </div>
     </MuiThemeProvider>
     );
   }
