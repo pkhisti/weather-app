@@ -2,7 +2,6 @@ import React , {Component} from 'react';
 import './weather.css';
 import TenDays from '../tendays/TenDays';
 import Chart from '../chart/Chart';
-import Container from 'muicss/lib/react/container';
 import Row from 'muicss/lib/react/row';
 import Col from 'muicss/lib/react/col';
 import {Card, CardHeader, CardMedia, CardTitle} from 'material-ui/Card';
@@ -40,16 +39,15 @@ render() {
         let details = "Temperature: " + temperature + " | Wind: " + this.props.data.wind.speed + " " + this.props.data.units.speed + " | Condition: " + this.props.data.item.condition.text;
         let cityImage = "./images/" + this.state.randomNumber + ".jpg";
         let data = this.props.data.item.forecast.map((item)=>{
-             return {"date": item.date,
+             return {"date": item.date.replace(/\d+$/, ''),
               "high": parseInt(item.high),
               "low": parseInt(item.low)}
          });
          let conditionImage = "http://l.yimg.com/a/i/us/we/52/"+this.props.data.item.condition.code+".gif";
         return (
             <div>
-                <Container fluid>
                 <Row>
-                    <Col xs={12} md={12} lg={10}>
+                    <Col xs={12} md={12} lg={12}>
                         <Card >
                             <CardHeader
                             title={this.props.data.item.title}
@@ -65,20 +63,21 @@ render() {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={8}  md={1} lg={1}>
-                    <Toggle label="Trend" defaultToggled={this.state.trend} onToggle={this.handleShowTrend}/>
+                    <Col xs={2}  md={1} lg={1}>
+                    <div className="togglebox">
+                        <Toggle label="Trend" defaultToggled={this.state.trend} onToggle={this.handleShowTrend}/>
+                    </div>
                     </Col>
-                     <Col xs={12}  md={5} lg={5}>
+                     <Col xs={10}  md={5} lg={5}>
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={12} md={12} lg={10}>
+                    <Col xs={12} md={12} lg={12}>
                     <div className={this.state.isTrend ? '' : 'hidden'}>
                         <Chart data={data}/>
                     </div>
                     </Col>
                 </Row>
-                </Container>
                  <div className={this.state.isTrend ? 'hidden': ''}>
                 <TenDays forecast={this.props.data.item.forecast} unit={this.props.data.units.temperature}/>
                 </div>

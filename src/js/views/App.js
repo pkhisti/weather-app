@@ -61,8 +61,8 @@ render() {
   return(
     <MuiThemeProvider>
     <div>
-          <Header/>
-        <Container>
+        <Header/>
+        <Container fluid>
           <Cities handleCityChange={this.handleCityChange} city={this.state.selectedCity}/>
           <Weather data={this.state.weatherData} showData={this.state.showData} city={this.state.selectedCity}/>
         </Container>
