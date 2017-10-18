@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
-import './cities.css';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -39,7 +38,7 @@ class Cities extends Component {
       />,
     ];
     return (
-      <div className="box">
+      <div>
         <AutoComplete hintText="Enter a city" dataSource={this.state.dataSource}
           onNewRequest={this.handleChange}/>
           <Dialog title="Error! Invalid City" actions={actions}

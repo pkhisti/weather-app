@@ -3,8 +3,15 @@ import Paper from 'material-ui/Paper';
 import Row from 'muicss/lib/react/row';
 import Col from 'muicss/lib/react/col';
 import Divider from 'material-ui/Divider';
-import './tendays.css';
 
+const paper = {
+    height: 180,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 5,
+    paddingRight: 5,
+    textAlign: "center"
+};
 class TenDays extends Component {
     render() {
         let highTemp = this.props.forecast.slice().sort((a,b)=>b.high-a.high);
@@ -13,7 +20,7 @@ class TenDays extends Component {
             <div>
                   <Row>
                    <Col xs="4" sm="3" md="4" lg="2">
-                   <Paper className="paper" >
+                   <Paper style={paper} >
                         <h4>Hottest Day!</h4>
                         <img src="http://l.yimg.com/a/i/us/we/52/32.gif"  className="weatherImg"/>
                         <Divider />
@@ -26,7 +33,7 @@ class TenDays extends Component {
                         let conditionImage = "http://l.yimg.com/a/i/us/we/52/" + day.code + ".gif";
                         return (
                             <Col key={day.day+index} xs="4" sm="3" md="2" lg="1">
-                                <Paper className="paper" >
+                                <Paper style={paper}>
                                     <h4>{header}</h4>
                                     <img src={conditionImage} alt={day.text} className="weatherImg"/>
                                     <Divider />
