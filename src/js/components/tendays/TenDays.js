@@ -8,8 +8,10 @@ const paper = {
     height: 180,
     paddingTop: 5,
     paddingBottom: 5,
-    paddingLeft: 5,
-    paddingRight: 5,
+    paddingLeft: 3,
+    paddingRight: 3,
+    marginTop: 5,
+    marginBottom: 5,
     textAlign: "center"
 };
 class TenDays extends Component {
@@ -24,8 +26,8 @@ class TenDays extends Component {
                         <h4>Hottest Day!</h4>
                         <img src="http://l.yimg.com/a/i/us/we/52/32.gif"  className="weatherImg"/>
                         <Divider />
-                        <h4>{hottest.date}</h4>
-                        <h4>{hottest.high} &deg;{this.props.unit}</h4>
+                        <h6>{hottest.date}</h6>
+                        <h6>{hottest.high} &deg;{this.props.unit}</h6>
                     </Paper>
                    </Col>
                     { this.props.forecast.map((day,index) => {
